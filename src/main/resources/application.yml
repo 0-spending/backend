@@ -3,9 +3,9 @@ spring:
     name: diet
 
   datasource:
-    url: ${DB_URL}
-    username: ${DB_USERNAME}
-    password: ${DB_PASSWORD}
+    url: zero-spending-db.c7iwog84a8ue.us-east-1.rds.amazonaws.com
+    username: admin
+    password: wlcnf123!
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
