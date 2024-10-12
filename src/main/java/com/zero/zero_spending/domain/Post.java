@@ -1,5 +1,6 @@
 package com.zero.zero_spending.domain;
 
+import com.zero.zero_spending.domain.user.entity.User;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,7 +17,7 @@ public class Post {
 
     @ManyToOne
     @JoinColumn(name = "id2", nullable = false)
-    private Users users;
+    private User users;
 
     @Column(name = "user_id", nullable = false)
     private Long userId;
