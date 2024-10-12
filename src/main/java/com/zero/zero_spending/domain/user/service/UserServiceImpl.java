@@ -74,10 +74,16 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findByNickname(currentNickname)
                 .orElseThrow(() -> new UsernameNotFoundException("존재하지 않는 사용자입니다."));
 
+        // 닉네임 수정 시 중복 체크
         if (request.getNickname() != null) {
+            // 새로운 닉네임이 현재 닉네임과 다를 경우에만 중복 체크
+            if (!request.getNickname().equals(currentNickname) && userRepository.findByNickname(request.getNickname()).isPresent()) {
+                throw new IllegalArgumentException("이미 존재하는 닉네임입니다.");
+            }
             user.setNickname(request.getNickname());
         }
 
+        // 비밀번호 업데이트
         if (request.getPassword() != null) {
             String encodedPassword = passwordEncoder.encode(request.getPassword());
             user.setPassword(encodedPassword);
@@ -85,4 +91,5 @@ public class UserServiceImpl implements UserService {
 
         userRepository.save(user);
     }
+
 }
