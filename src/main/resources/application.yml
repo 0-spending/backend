@@ -3,14 +3,14 @@ spring:
     name: diet
 
   datasource:
-    url: zero-spending-db.c7iwog84a8ue.us-east-1.rds.amazonaws.com
+    url: jdbc:mysql://zero-spending-db.c7iwog84a8ue.us-east-1.rds.amazonaws.com/mysql?useSSL=false&serverTimezone=UTC
     username: admin
     password: wlcnf123!
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
     hibernate:
-      ddl-auto: create #update
+      ddl-auto: update #create
     properties:
       hibernate:
         show_sql: true
