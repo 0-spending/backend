@@ -68,4 +68,21 @@ public class UserServiceImpl implements UserService {
                 user.getPassword(),
                 List.of(new SimpleGrantedAuthority("ROLE_USER")));
     }
+
+    @Override
+    public void updateProfile(UpdateProfileRequestDTO request, String currentNickname) {
+        User user = userRepository.findByNickname(currentNickname)
+                .orElseThrow(() -> new UsernameNotFoundException("존재하지 않는 사용자입니다."));
+
+        if (request.getNickname() != null) {
+            user.setNickname(request.getNickname());
+        }
+
+        if (request.getPassword() != null) {
+            String encodedPassword = passwordEncoder.encode(request.getPassword());
+            user.setPassword(encodedPassword);
+        }
+
+        userRepository.save(user);
+    }
 }
