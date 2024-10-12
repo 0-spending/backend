@@ -29,7 +29,6 @@ public class User {
         this.password = password;
     }
 
-    // Setter 없이 별도의 업데이트 메서드 제공
     public void updateNickName(String nickname) {
         this.nickname = nickname;
     }

@@ -39,4 +39,10 @@ public class MemberController {
 
         return ResponseEntity.ok(response);
     }
+
+    // 로그아웃 API
+    @DeleteMapping("/logout")
+    public ResponseEntity<String> logout() {
+        return ResponseEntity.ok("로그아웃 성공. 클라이언트에서 JWT 삭제바람.");
+    }
 }
