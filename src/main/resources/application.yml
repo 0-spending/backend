@@ -23,6 +23,20 @@ spring:
       mode: always
       encoding: UTF-8
 
+  # AWS S3
+  cloud:
+    aws:
+      s3:
+        bucket: 0spending
+      stack:
+        auto: false
+      region:
+        static: ap-northeast-2
+      credentials:
+        accessKey: ${AWS_ACCESS_KEY_ID}
+        secretKey: ${AWS_SECRET_ACCESS_KEY}
+
+
 server:
   port: 8081
 

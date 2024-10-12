@@ -51,4 +51,8 @@ public class Post {
         SPEND, SAVING, PLACE, ITEM
     }
 
+    // Add a new field for image URL
+    @Column(name = "image_url", length = 512)
+    private String imageUrl;
+
 }
