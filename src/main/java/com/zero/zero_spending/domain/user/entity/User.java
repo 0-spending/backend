@@ -1,13 +1,10 @@
 package com.zero.zero_spending.domain.user.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Getter
+@Data
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
