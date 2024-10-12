@@ -1,5 +1,6 @@
 package com.zero.zero_spending.domain.user.service;
 
+import com.zero.zero_spending.domain.user.JwtTokenProvider;
 import com.zero.zero_spending.domain.user.dto.*;
 import com.zero.zero_spending.domain.user.entity.User;
 import com.zero.zero_spending.domain.user.repository.UserRepository;
@@ -19,6 +20,7 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
+    private final JwtService jwtService;
 
     @Override
     public SignupResponseDTO registerUser(SignupRequestDTO request) {
@@ -52,7 +54,8 @@ public class UserServiceImpl implements UserService {
             throw new IllegalArgumentException("비밀번호가 일치하지 않습니다.");
         }
 
-        return "Authenticated"; // JWT 토큰 발급은 JwtService에서 처리
+        // JWT 토큰 생성
+        return jwtService.generateToken(user.getNickname()); // JWT 토큰을 반환
     }
 
     @Override
