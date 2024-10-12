@@ -1,13 +1,10 @@
 package com.zero.zero_spending.domain.user.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
-@Getter
+@Data
 @Table(name = "users")
 @NoArgsConstructor
 @AllArgsConstructor
@@ -29,7 +26,6 @@ public class User {
         this.password = password;
     }
 
-    // Setter 없이 별도의 업데이트 메서드 제공
     public void updateNickName(String nickname) {
         this.nickname = nickname;
     }
