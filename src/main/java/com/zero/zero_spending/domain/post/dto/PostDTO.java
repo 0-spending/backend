@@ -1,8 +1,10 @@
-package com.zero.zero_spending.dto;
+package com.zero.zero_spending.domain.post.dto;
 
-import com.zero.zero_spending.domain.Post.Category;
+import com.zero.zero_spending.domain.post.entity.Post.Category;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,4 +18,5 @@ public class PostDTO {
     private String latitude;
     private String longitude;
     private String placeName;
+    private List<String> imageUrls;
 }

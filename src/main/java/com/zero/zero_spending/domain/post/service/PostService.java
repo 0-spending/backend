@@ -1,14 +1,12 @@
-package com.zero.zero_spending.service;
+package com.zero.zero_spending.domain.post.service;
 
-import com.zero.zero_spending.domain.Post;
+import com.zero.zero_spending.domain.post.entity.Post;
 import com.zero.zero_spending.domain.user.entity.User;
 import com.zero.zero_spending.domain.user.repository.UserRepository;
-import com.zero.zero_spending.dto.PostDTO;
-import com.zero.zero_spending.repository.PostRepository;
+import com.zero.zero_spending.domain.post.dto.PostDTO;
+import com.zero.zero_spending.domain.post.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class PostService {

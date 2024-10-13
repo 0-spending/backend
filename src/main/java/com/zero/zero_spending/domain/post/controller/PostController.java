@@ -1,16 +1,15 @@
-package com.zero.zero_spending.controller;
+package com.zero.zero_spending.domain.post.controller;
 
-import com.zero.zero_spending.domain.Post;
-import com.zero.zero_spending.dto.PostDTO;
+import com.zero.zero_spending.domain.post.entity.Post;
+import com.zero.zero_spending.domain.post.dto.PostDTO;
 import com.zero.zero_spending.s3.S3Service;
-import com.zero.zero_spending.service.PostService;
+import com.zero.zero_spending.domain.post.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/posts")

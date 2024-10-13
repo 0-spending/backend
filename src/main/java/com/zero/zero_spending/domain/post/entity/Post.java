@@ -1,13 +1,15 @@
-package com.zero.zero_spending.domain;
+package com.zero.zero_spending.domain.post.entity;
 
 import com.zero.zero_spending.domain.user.entity.User;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 @Table(name = "posts")
 public class Post {
     @Id
@@ -52,8 +54,6 @@ public class Post {
         SPEND, SAVING, PLACE, ITEM
     }
 
-    // Add a new field for image URL
-    @Column(name = "image_url", length = 512)
-    private String imageUrl;
-
+    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Image> images;
 }

@@ -1,4 +1,4 @@
-package com.zero.zero_spending.service;
+package com.zero.zero_spending.domain.post.service;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
