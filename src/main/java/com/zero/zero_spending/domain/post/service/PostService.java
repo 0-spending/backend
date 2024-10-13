@@ -7,6 +7,11 @@ import com.zero.zero_spending.domain.post.dto.PostDTO;
 import com.zero.zero_spending.domain.post.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import com.zero.zero_spending.domain.post.entity.Image;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 @Service
 public class PostService {
@@ -21,7 +26,7 @@ public class PostService {
                 .orElseThrow(() -> new RuntimeException("Post not found"));
     }
 
-    public Post createPost(PostDTO postDTO, String imageUrl) {
+    public Post createPost(PostDTO postDTO, List<String> imageUrls) {
         // Find the user by userId
         User user = userRepository.findById(postDTO.getUserId())
                 .orElseThrow(() -> new RuntimeException("User not found"));
@@ -37,9 +42,17 @@ public class PostService {
         post.setLatitude(postDTO.getLatitude());
         post.setLongitude(postDTO.getLongitude());
         post.setPlaceName(postDTO.getPlaceName());
-        post.setImageUrl(imageUrl);
 
-        return postRepository.save(post);  // Save post to DB
+        List<Image> images = new ArrayList<>();
+        for (String url : imageUrls) {
+            Image image = new Image();
+            image.setImageUrl(url);
+            image.setPost(post);
+            images.add(image);
+        }
+        post.setImages(images);
+
+        return postRepository.save(post);
     }
 
     public Post updatePost(Long id, PostDTO postDTO) {

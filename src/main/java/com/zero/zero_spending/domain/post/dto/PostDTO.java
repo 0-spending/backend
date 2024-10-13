@@ -9,7 +9,7 @@ import java.util.List;
 @Getter
 @Setter
 public class PostDTO {
-    private Long userId;     // Client sends only userId
+    private Long userId;
     private String title;
     private String content;
     private Category category;
