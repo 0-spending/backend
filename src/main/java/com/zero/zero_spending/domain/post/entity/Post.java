@@ -1,13 +1,15 @@
-package com.zero.zero_spending.domain;
+package com.zero.zero_spending.domain.post.entity;
 
 import com.zero.zero_spending.domain.user.entity.User;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Entity
-@Getter
-@Setter
+@Data
+@NoArgsConstructor
 @Table(name = "posts")
 public class Post {
     @Id
@@ -16,11 +18,9 @@ public class Post {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id2", nullable = false)
-    private User users;
 
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
+    @JoinColumn(name = "user_id", nullable = false)  
+    private User user;
 
     @Column(name = "title", length = 20, nullable = false)
     private String title;
@@ -51,5 +51,4 @@ public class Post {
     public enum Category {
         SPEND, SAVING, PLACE, ITEM
     }
-
 }
