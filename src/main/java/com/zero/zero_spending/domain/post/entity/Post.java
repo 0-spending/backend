@@ -18,11 +18,8 @@ public class Post {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "id2", nullable = false)
-    private User users;
-
-    @Column(name = "user_id", nullable = false)
-    private Long userId;
+    @JoinColumn(name = "user_id", nullable = false)  // Column will still be user_id
+    private User user;
 
     @Column(name = "title", length = 20, nullable = false)
     private String title;
@@ -53,7 +50,4 @@ public class Post {
     public enum Category {
         SPEND, SAVING, PLACE, ITEM
     }
-
-    @OneToMany(mappedBy = "post", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Image> images;
 }
