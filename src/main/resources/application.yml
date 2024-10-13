@@ -8,6 +8,7 @@ spring:
     password: wlcnf123!
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+
   jpa:
     hibernate:
       ddl-auto: update #create
@@ -23,24 +24,13 @@ spring:
       mode: always
       encoding: UTF-8
 
-  # AWS S3
-  cloud:
-    aws:
-      s3:
-        bucket: 0spending
-      stack:
-        auto: false
-      region:
-        static: ap-northeast-2
-      credentials:
-        access-key: ${AWS_ACCESS_KEY_ID}
-        secret-key: ${AWS_SECRET_ACCESS_KEY}
-
 
 server:
   port: 8081
 
 logging:
   level:
+
+
     org.hibernate.SQL: debug
     org.hibernate.orm.jdbc.bind: trace
