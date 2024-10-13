@@ -18,5 +18,4 @@ public class PostDTO {
     private String latitude;
     private String longitude;
     private String placeName;
-    private List<String> imageUrls;
 }
